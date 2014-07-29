@@ -10,17 +10,18 @@ from tkinter import *
 from tkinter import ttk
 #from virtualPet import *
 
-class userInterface:
+
+class UserInterface:
+
     def __init__(self, pet):
         #Assign properties and variables
         self.pet = pet
-        self.root=Tk()
+        self.root = Tk()
         self.root.title("Virtual Python Pet")
         #self.root.after(10000, self.timedUpdate)
-
-
+        
         #Create the Mainframe object and set it up.
-        self.mainframe=ttk.Frame(self.root, padding="3 3 12 12")
+        self.mainframe = ttk.Frame(self.root, padding="3 3 12 12")
         self.mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         self.mainframe.columnconfigure(0, weight=1)
         self.mainframe.rowconfigure(0, weight=1)
@@ -59,6 +60,7 @@ class userInterface:
         self.petHappiness.set(self.pet.getHappiness())
         self.petHunger.set(self.pet.getHunger())
         return
+
     def timedUpdate(self):
         #Update function for cleanliness, hunger, happiness, and boredom will
 

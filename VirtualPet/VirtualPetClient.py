@@ -6,7 +6,7 @@ from virtualPet import virtualPet
 from VirtualPet.PetInterface import userInterface
 
 
-pet=virtualPet.virtualPet("Bob")
+pet=virtualPet("Bob")
 UI=userInterface(pet)
 UI.root.mainloop()
 
