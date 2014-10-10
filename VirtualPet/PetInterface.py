@@ -5,9 +5,9 @@ This is a TKinter interface for the VirtualPet object class. This UI will intera
 
 __author__ = 'Adam'
 
-
 from tkinter import *
 from tkinter import ttk
+
 #from virtualPet import *
 
 
