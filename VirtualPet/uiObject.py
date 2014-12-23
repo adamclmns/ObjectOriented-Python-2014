@@ -9,6 +9,10 @@ from Tkinter import *
 from ttk import *
 from PIL import Image, ImageTk
 
+'''
+Requires Pillow from  http://www.lfd.uci.edu/~gohlke/pythonlibs/#pil for Python 2.7 win32
+in order to embed images in Tkinter
+'''
 
 #from petClass import *
 
@@ -20,7 +24,7 @@ class uiClass:
         self.pet = pet
         self.root = Tk()
         self.root.title("Virtual Python Pet")
-        self.root.wm_geometry("360x200")
+        self.root.wm_geometry("440x380")
         #self.root.after(10000, self.timedUpdate)
         
         #Create the Mainframe object and set it up.
@@ -49,24 +53,37 @@ class uiClass:
         Label(self.mainframe, textvariable=self.petSize).grid(column=2, row=3, sticky=(W,E))
 
         #Adding buttons
-        Button(self.mainframe, text="Feed", command=self.feed).grid(column=2, row=4, sticky=(W, E))
-        Button(self.mainframe, text="Play", command=self.play).grid(column=2, row=5, sticky=(W,E))
+        Button(self.mainframe, text="Feed", command=self.feed).grid(column=4, row=1, sticky=(E))
+        Button(self.mainframe, text="Play", command=self.play).grid(column=4, row=2, sticky=(E))
 
-        #adding Image Label - defaulting to "happy"
-        happyPet = ImageTk.PhotoImage(file=".\\images\\happyPet.png")
-        icon = Label(image=happyPet)
-        icon.grid()
-        icon.image = happyPet
+        #adding image varriables to put into UI
+        self.happyPet = ImageTk.PhotoImage(file=".\\images\\happyPet.png")
+        self.sadPet = ImageTk.PhotoImage(file=".\\images\\sadPet.png")
+        self.playPet = ImageTk.PhotoImage(file=".\\images\\playPet.png")
+        self.feedPet = ImageTk.PhotoImage(file=".\\images\\feedPet.png")
+
+        self.icon = Label(image=self.happyPet)
+        self.icon.grid(column=0, row=4, columnspan=5, rowspan=5)
+        self.icon.image = self.happyPet
+
+
     #Functions to interface with PetClass.
+    def changeImage(self, photoImage):
+        self.icon = Label(image=photoImage)
+        self.icon.grid(column=0, row=4, columnspan=5, rowspan=5)
+        self.icon.image = photoImage
+
     def feed(self):
         self.pet.feed()
         self.petHunger.set(self.pet.getHunger())
+        self.changeImage(self.feedPet)
         return
 
     def play(self):
         self.pet.play()
         self.petHappiness.set(self.pet.getHappiness())
         self.petHunger.set(self.pet.getHunger())
+        self.changeImage(self.playPet)
         return
 
     def timedUpdate(self):
