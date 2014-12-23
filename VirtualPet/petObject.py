@@ -1,6 +1,6 @@
 __author__ = 'Adam'
 
-class virtualPet:
+class petClass:
 #Defining Initiation method - Sets up defaults when new object is created
     def __init__(self, name):
         self.name=name
