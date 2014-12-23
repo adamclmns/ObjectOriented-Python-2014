@@ -2,6 +2,19 @@
 Thumbs.db
 ehthumbs.db
 
+#PyCharm Project Files
+encodings.xml
+misc.xml
+modules.xml
+vcs.xml
+workspace.xml
+ObjectOriented-Python-2014.iml
+scope_settings.xml
+#PyCharm Project Folders
+.idea
+scopes
+
+
 # Folder config file
 Desktop.ini
 
@@ -26,7 +39,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
+Icon
+
 
 # Thumbnails
 ._*
