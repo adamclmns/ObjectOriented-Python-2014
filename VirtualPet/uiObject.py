@@ -7,6 +7,7 @@ __author__ = 'Adam'
 
 from Tkinter import *
 from ttk import *
+from PIL import Image, ImageTk
 
 
 #from petClass import *
@@ -19,6 +20,7 @@ class uiClass:
         self.pet = pet
         self.root = Tk()
         self.root.title("Virtual Python Pet")
+        self.root.wm_geometry("360x200")
         #self.root.after(10000, self.timedUpdate)
         
         #Create the Mainframe object and set it up.
@@ -50,6 +52,11 @@ class uiClass:
         Button(self.mainframe, text="Feed", command=self.feed).grid(column=2, row=4, sticky=(W, E))
         Button(self.mainframe, text="Play", command=self.play).grid(column=2, row=5, sticky=(W,E))
 
+        #adding Image Label - defaulting to "happy"
+        happyPet = ImageTk.PhotoImage(file=".\\images\\happyPet.png")
+        icon = Label(image=happyPet)
+        icon.grid()
+        icon.image = happyPet
     #Functions to interface with PetClass.
     def feed(self):
         self.pet.feed()
