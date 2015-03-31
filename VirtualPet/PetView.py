@@ -3,7 +3,7 @@ Written for Python 3.4 x86 on Windows 7 Pro x64
 This is a TKinter interface for the VirtualPet object class. This UI will interact with the object
 '''
 
-__author__ = 'Adam'
+__author__ = 'Adam Clemons'
 
 from tkinter import *
 from tkinter import ttk
@@ -11,7 +11,7 @@ from tkinter import ttk
 #from virtualPet import *
 
 
-class UserInterface:
+class PetView:
 
     def __init__(self, pet):
         #Assign properties and variables
@@ -52,14 +52,18 @@ class UserInterface:
     #Functions to interface with PetClass.
     def feed(self):
         self.pet.feed()
-        self.petHunger.set(self.pet.getHunger())
+        self.petHunger.set(self.pet.getHunger()+3)
         return
 
     def play(self):
         self.pet.play()
-        self.petHappiness.set(self.pet.getHappiness())
-        self.petHunger.set(self.pet.getHunger())
+        self.petHappiness.set(self.pet.getHappiness()+3)
+        self.petHunger.set(self.pet.getHunger()+3)
         return
+
+    def clean(self):
+        self.pet.clean()
+        self.petHappiness.set(self.pet.getHappiness())
 
     def timedUpdate(self):
         #Update function for cleanliness, hunger, happiness, and boredom will

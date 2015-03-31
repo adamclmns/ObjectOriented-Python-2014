@@ -1,4 +1,4 @@
-__author__ = 'aclemo'
+__author__ = 'Adam Clemons'
 
 #Importing Python Standard Library Modules for Python 3.4. Importing as for compatibility with code written for 2.7
 import tkinter as tk
@@ -34,6 +34,7 @@ def threadmain():
             pass
         else:
             print("something in queue")
+            #Gets an action from the queue and executes it, and puts the result in another queue. If you want to read the results back later
             retval = callable(*args, **kwargs)
             result_queue.put(retval)
         #Tells timertick to repeat itself every 500 milliseconds
@@ -74,15 +75,18 @@ if __name__ == '__main__':
     secondsPassed = 0
     while 1:
         secondsPassed += 1
+        print(str(secondsPassed) +" Seconds passed")
 
         if secondsPassed == 3:
             #Adds the set-title action to the queue
             submit_to_tkinter(setTitle)
 
         if secondsPassed == 5:
+            #Changes the button text to "too slow"
             submit_to_tkinter(setButtonText, "Too Slow... ")
 
         if secondsPassed == 7:
+            #prints the text that's in the button.
             print(submit_to_tkinter(getButtonText))
 
         sleep(1)
