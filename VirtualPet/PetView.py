@@ -13,15 +13,13 @@ from tkinter import tk
 
 class PetView:
 
-    def __init__(self, model):
+    def __init__(self, model, window):
         # Assign properties and variables
         self.viewModel = model
-        self.frame = Tk.frame(master)
-        self.frame.title("Virtual Python Pet")
         # self.root.after(10000, self.timedUpdate)
         
         # Create the Mainframe object and set it up.
-        self.mainframe = tk.Frame(self.frame, padding="3 3 12 12")
+        self.mainframe = tk.Frame(window, padding="3,3,12,12")
         self.mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         self.mainframe.columnconfigure(0, weight=1)
         self.mainframe.rowconfigure(0, weight=1)
@@ -39,13 +37,13 @@ class PetView:
         tk.Label(self.mainframe, text="Hunger").grid(column=1, row=1, sticky=(W))
         tk.Label(self.mainframe, text="Happiness").grid(column = 1, row=2, sticky=(W))
         tk.Label(self.mainframe, text="Size").grid(column = 1, row=3, sticky=(W))
-        tk.Label(self.mainframe, textvariable=self.petHunger).grid(column=2, row=1, sticky=(W,E))
-        tk.Label(self.mainframe, textvariable=self.petHappiness).grid(column=2, row = 2, sticky=(W,E))
-        tk.Label(self.mainframe, textvariable=self.petSize).grid(column=2, row=3, sticky=(W,E))
+        tk.Label(self.mainframe, textvariable=self.petHunger).grid(column=2, row=1, sticky=(W, E))
+        tk.Label(self.mainframe, textvariable=self.petHappiness).grid(column=2, row = 2, sticky=(W, E))
+        tk.Label(self.mainframe, textvariable=self.petSize).grid(column=2, row=3, sticky=(W, E))
 
         # Adding buttons
         tk.Button(self.mainframe, text="Feed", command=self.feed).grid(column=2, row=4, sticky=(W, E))
-        tk.Button(self.mainframe, text="Play", command=self.play).grid(column=2, row=5, sticky=(W,E))
+        tk.Button(self.mainframe, text="Play", command=self.play).grid(column=2, row=5, sticky=(W, E))
 
     # Functions to interface with PetClass.
     def feed(self):
