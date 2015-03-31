@@ -6,66 +6,64 @@ This is a TKinter interface for the VirtualPet object class. This UI will intera
 __author__ = 'Adam Clemons'
 
 from tkinter import *
-from tkinter import ttk
+from tkinter import tk
 
 #from virtualPet import *
 
 
 class PetView:
 
-    def __init__(self, pet):
-        #Assign properties and variables
-        self.pet = pet
-        self.root = Tk()
-        self.root.title("Virtual Python Pet")
-        #self.root.after(10000, self.timedUpdate)
+    def __init__(self, model):
+        # Assign properties and variables
+        self.viewModel = model
+        self.frame = Tk.frame(master)
+        self.frame.title("Virtual Python Pet")
+        # self.root.after(10000, self.timedUpdate)
         
-        #Create the Mainframe object and set it up.
-        self.mainframe = ttk.Frame(self.root, padding="3 3 12 12")
+        # Create the Mainframe object and set it up.
+        self.mainframe = tk.Frame(self.frame, padding="3 3 12 12")
         self.mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         self.mainframe.columnconfigure(0, weight=1)
         self.mainframe.rowconfigure(0, weight=1)
 
-        #Create the variables for the labels.
+        # Create the variables for the labels.
         self.petHunger = StringVar()
         self.petHappiness = StringVar()
-        self.petSize=StringVar()
-        #self.petCleanliness=StringVar()
+        self.petCleanliness = StringVar()
 
-        #Set variables for the UI
-        self.petHunger.set(self.pet.getHunger())
-        self.petHappiness.set(self.pet.getHappiness())
-        self.petSize.set(self.pet.getSize())
+        # Set variables for the UI
+        self.petHunger.set(self.viewModel.getHunger())
+        self.petHappiness.set(self.viewModel.getHappiness())
 
-        #Adding the Labels
-        ttk.Label(self.mainframe, text="Hunger").grid(column=1, row=1, sticky=(W))
-        ttk.Label(self.mainframe, text="Happiness").grid(column = 1, row=2, sticky=(W))
-        ttk.Label(self.mainframe, text="Size").grid(column = 1, row=3, sticky=(W))
-        ttk.Label(self.mainframe, textvariable=self.petHunger).grid(column=2, row=1, sticky=(W,E))
-        ttk.Label(self.mainframe, textvariable=self.petHappiness).grid(column=2, row = 2, sticky=(W,E))
-        ttk.Label(self.mainframe, textvariable=self.petSize).grid(column=2, row=3, sticky=(W,E))
+        # Adding the Labels
+        tk.Label(self.mainframe, text="Hunger").grid(column=1, row=1, sticky=(W))
+        tk.Label(self.mainframe, text="Happiness").grid(column = 1, row=2, sticky=(W))
+        tk.Label(self.mainframe, text="Size").grid(column = 1, row=3, sticky=(W))
+        tk.Label(self.mainframe, textvariable=self.petHunger).grid(column=2, row=1, sticky=(W,E))
+        tk.Label(self.mainframe, textvariable=self.petHappiness).grid(column=2, row = 2, sticky=(W,E))
+        tk.Label(self.mainframe, textvariable=self.petSize).grid(column=2, row=3, sticky=(W,E))
 
-        #Adding buttons
-        ttk.Button(self.mainframe, text="Feed", command=self.feed).grid(column=2, row=4, sticky=(W, E))
-        ttk.Button(self.mainframe, text="Play", command=self.play).grid(column=2, row=5, sticky=(W,E))
+        # Adding buttons
+        tk.Button(self.mainframe, text="Feed", command=self.feed).grid(column=2, row=4, sticky=(W, E))
+        tk.Button(self.mainframe, text="Play", command=self.play).grid(column=2, row=5, sticky=(W,E))
 
-    #Functions to interface with PetClass.
+    # Functions to interface with PetClass.
     def feed(self):
-        self.pet.feed()
-        self.petHunger.set(self.pet.getHunger()+3)
+        self.viewModel.feed()
+        self.petHunger.set(self.viewModel.getHunger()+3)
         return
 
     def play(self):
-        self.pet.play()
-        self.petHappiness.set(self.pet.getHappiness()+3)
-        self.petHunger.set(self.pet.getHunger()+3)
+        self.viewModel.play()
+        self.petHappiness.set(self.viewModel.getHappiness()+3)
+        self.petHunger.set(self.viewModel.getHunger()+3)
         return
 
     def clean(self):
-        self.pet.clean()
-        self.petHappiness.set(self.pet.getHappiness())
+        self.viewModel.clean()
+        self.petHappiness.set(self.viewModel.getHappiness())
 
     def timedUpdate(self):
-        #Update function for cleanliness, hunger, happiness, and boredom will
+        # Update function for cleanliness, hunger, happiness, and boredom will
 
         return

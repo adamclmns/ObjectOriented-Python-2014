@@ -71,7 +71,6 @@ if __name__ == '__main__':
     #Starting a new thread.
     thread.start_new_thread(threadmain, ())
 
-
     secondsPassed = 0
     while 1:
         secondsPassed += 1
