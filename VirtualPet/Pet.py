@@ -11,6 +11,7 @@ class Pet:
         self.happinessRate = 2
         self.cleanlinessRate = 2
 
+# TODO: Delete all the overhead code that we don't need anymore
 ##-------------------------------------------------------------OVER HEAD CODE ------------------------------------##
 #Getters for Attributes - Not required for Python
     def getName(self):

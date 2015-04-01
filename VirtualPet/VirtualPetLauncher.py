@@ -1,12 +1,8 @@
 __author__ = 'Adam Clemons'
 
 
-from Pet import virtualPet
-from VirtualPet.PetView import userInterface
+# TODO: Will call the controller and create all objects here. This launcher will contain just a main function
 
 
-pet=virtualPet("Bob")
-UI=userInterface(pet)
-UI.root.mainloop()
 
 
