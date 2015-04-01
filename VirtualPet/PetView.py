@@ -17,7 +17,7 @@ class PetView:
         # TODO: Check that the UI meets the design requirements
         # TODO: document UI with figures
         # Create the Mainframe object and set it up.
-        self.mainframe = ttk.Frame(window, padding="3,3,12,12")
+        self.mainframe = ttk.Frame(window)
         self.mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         self.mainframe.columnconfigure(0, weight=1)
         self.mainframe.rowconfigure(0, weight=1)

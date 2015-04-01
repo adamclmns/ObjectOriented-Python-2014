@@ -6,15 +6,17 @@ import _thread as thread
 import queue
 
 # Custom Classes
-import Pet
-import PetView
+from Pet import Pet
+from PetView import PetView
+
+# TODO: add logging to entire project
 
 # Functions that we need to perform actions to our Pet
-class PetController:
+class PetController():
     def __init__(self):
         self.window = tk.Tk()
         self.view = PetView(self.window)
-        self.model = Pet()
+        self.model = Pet("Honey Badger")
         # This queue's actions so that two threads don't try to access something at the same time
         self.request_queue = queue.Queue()
         self.result_queue = queue.Queue()
@@ -22,9 +24,10 @@ class PetController:
         self.t = None
         # Adding buttons/Controls to the View window
         # TODO: Use Lambdas instead of wrapper functions
-        ttk.Button(self.view.mainframe, text="Feed", command=self.threadedFeed).grid(column=2, row=4, sticky=(W, E))
-        ttk.Button(self.view.mainframe, text="Play", command=self.threadedPlay).grid(column=2, row=5, sticky=(W, E))
-        ttk.Button(self.view.mainframe, text="Clean", command=self.threadedClean).grid(column=2, row=6, sticky=(W, E))
+        ttk.Button(self.view.mainframe, text="Feed", command=self.threadedFeed).grid(column=2, row=4)
+        ttk.Button(self.view.mainframe, text="Play", command=self.threadedPlay).grid(column=2, row=5)
+        ttk.Button(self.view.mainframe, text="Clean", command=self.threadedClean).grid(column=2, row=6)
+        self.window.mainloop()
 
     def updateValues(self):
         # Set variables for the UI
