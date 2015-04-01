@@ -26,6 +26,12 @@ class PetController:
         ttk.Button(self.view.mainframe, text="Play", command=self.threadedPlay).grid(column=2, row=5, sticky=(W, E))
         ttk.Button(self.view.mainframe, text="Clean", command=self.threadedClean).grid(column=2, row=6, sticky=(W, E))
 
+    def updateValues(self):
+        # Set variables for the UI
+        self.view.petHunger.set(self.model.getHunger())
+        self.view.petHappiness.set(self.model.getHappiness())
+        self.view.petCleanliness.set(self.model.getCleanliness())
+
 # --------------------------THREADING CODE ------------------------------------------ #
     # Remember this? - Copied and Pasted
     # Thread main is where all the work will get done.
@@ -44,25 +50,40 @@ class PetController:
                 retval = action(*arguments, **keyWordArguments)
                 self.result_queue.put(retval)
             self.t.after(500, timertick)
+
+
 # -------------------------/THREADING CODE ------------------------------------------ #
 
     # Actions to be performed by the controller
     def feed(self):
-        # Feed your pet to increase it's 'hunger'
         if self.model.hunger < 10:
             self.model.hunger += self.model.hungerRate
 
     def play(self):
-        # play with your pet, they will use up some of their hunger, so be sure to feed them
         if self.model.hunger > 0:
             self.model.hunger -= 1
             self.model.happiness += 1
 
     def clean(self):
-        # be sure to play with your pet, or they'll get bored and slowly become unhappy
         if self.model.cleanliness > 0:
             self.model.cleanliness -= 1
 
+    # Actions on timer
+    def feedDecay(self):
+        if self.model.hunger > 0:
+            self.model.hunger -= 1
+
+    def happinessDecay(self):
+        if self.model.happiness > 0:
+            self.model.hunger -= 1
+    def cleanDecay(self):
+        if self.model.cleanliness > 0:
+            self.model.ceanliness -= 1
+
+    def update(self):
+        self.feedDecay
+        self.happinessDecay()
+        self.cleanDecay()
 
     # Threaded wrapping functions to use our super cool threads
     def threadedFeed(self):
@@ -72,5 +93,16 @@ class PetController:
         self.submitAction(self.play)
 
     def threadedClean(self):
-        self.submitActino(self.clean)
+        self.submitAction(self.clean)
 
+    def threadedFeedDecay(self):
+        self.submitAction(self.feedDecay)
+
+    def threadedHappinessDecay(self):
+        self.submitAction(self.happinessDecay)
+
+    def threadedCleanDecay(self):
+        self.submitAction(self.cleanDecay)
+
+    def threadedUpdate(self):
+        self.submitAction(self.update)

@@ -27,16 +27,12 @@ class PetView:
         self.petHappiness = StringVar()
         self.petCleanliness = StringVar()
 
-        # Set variables for the UI
-        self.petHunger.set(self.viewModel.getHunger())
-        self.petHappiness.set(self.viewModel.getHappiness())
-
         # Adding the Labels
-        ttk.Label(self.mainframe, text="Hunger").grid(column=1, row=1, sticky=(W))
-        ttk.Label(self.mainframe, text="Happiness").grid(column = 1, row=2, sticky=(W))
-        ttk.Label(self.mainframe, text="Size").grid(column = 1, row=3, sticky=(W))
+        ttk.Label(self.mainframe, text="Hunger ").grid(column=1, row=1, sticky=(W))
+        ttk.Label(self.mainframe, text="Happiness ").grid(column=1, row=2, sticky=(W))
+        ttk.Label(self.mainframe, text="Size ").grid(column=1, row=3, sticky=(W))
         ttk.Label(self.mainframe, textvariable=self.petHunger).grid(column=2, row=1, sticky=(W, E))
         ttk.Label(self.mainframe, textvariable=self.petHappiness).grid(column=2, row = 2, sticky=(W, E))
-        ttk.Label(self.mainframe, textvariable=self.petSize).grid(column=2, row=3, sticky=(W, E))
+        ttk.Label(self.mainframe, textvariable=self.petCleanliness).grid(column=2, row=3, sticky=(W, E))
 
 
