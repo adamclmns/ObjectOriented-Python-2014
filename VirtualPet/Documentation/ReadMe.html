@@ -71,19 +71,24 @@
     <h2>Pet Interface - View</h2>
     <p>
         The interface will feature an image, that changes with each action performed, a button for each action,
-        a label, and a value for each characteristic of the pet.
-
+        a label, and a value for each characteristic of the pet. We will use columns and rows to organize the
+        widgets on the screen.
     </p>
-
+        <img src="view.jpg" width="500px"/>
     </div>
     <hr/>
 
     <div>
     <a name="Controller"></a>
-
     <h2>Actions and Functions - Controller</h2>
-
-
+    <p>
+        The Pet Controller will manage the view, and the model. These objects will all be contained in the controller
+        for access reasons.
+    </p>
+    <p>
+        The controller will implement two threads, for the interface and the timer in the background. Each action
+        performed on the pet will occur within the controller and be managed by a Queue object.
+    </p>
     </div>
     <hr/>
     <a name=""></a>
