@@ -21,6 +21,7 @@ class PetController:
         # This is our ticker
         self.t = None
         # Adding buttons/Controls to the View window
+        # TODO: Use Lambdas instead of wrapper functions
         ttk.Button(self.view.mainframe, text="Feed", command=self.threadedFeed).grid(column=2, row=4, sticky=(W, E))
         ttk.Button(self.view.mainframe, text="Play", command=self.threadedPlay).grid(column=2, row=5, sticky=(W, E))
         ttk.Button(self.view.mainframe, text="Clean", command=self.threadedClean).grid(column=2, row=6, sticky=(W, E))
@@ -51,18 +52,19 @@ class PetController:
         if self.model.hunger < 10:
             self.model.hunger += self.model.hungerRate
 
-    def play(self, model):
+    def play(self):
         # play with your pet, they will use up some of their hunger, so be sure to feed them
         if self.model.hunger > 0:
             self.model.hunger -= 1
             self.model.happiness += 1
 
-    def clean(self, model):
+    def clean(self):
         # be sure to play with your pet, or they'll get bored and slowly become unhappy
         if self.model.cleanliness > 0:
             self.model.cleanliness -= 1
 
-    #Threaded actions to use our threading
+
+    # Threaded wrapping functions to use our super cool threads
     def threadedFeed(self):
         self.submitAction(self.feed)
 
