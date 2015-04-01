@@ -6,10 +6,15 @@
     <style type="text/css">
         body{
             width:800px;
-            margin:0 auto 0 auto;
+            margin:0 auto;
         }
-        div {
+        div.section {
             padding:0 20px 0 20px;
+        }
+        div.imageContainer {
+        margin:0px auto 0px auto;
+        display:inline-block;
+
         }
 
     </style>
@@ -28,7 +33,7 @@
     </div>
 
     <hr/>
-    <div>
+    <div class="section">
     <a name="Summary"></a>
     <h2>Summary</h2>
     <p>
@@ -44,7 +49,7 @@
     </div>
 
     <hr/>
-    <div>
+    <div class="section">
     <a name="Model"></a>
     <h2>Pet Object - Model</h2>
     <p>
@@ -66,7 +71,7 @@
     </div>
 
     <hr/>
-    <div>
+    <div class="section">
     <a name="View"></a>
     <h2>Pet Interface - View</h2>
     <p>
@@ -74,11 +79,13 @@
         a label, and a value for each characteristic of the pet. We will use columns and rows to organize the
         widgets on the screen.
     </p>
+        <div class="imageContainer">
         <img src="view.jpg" width="500px"/>
+            </div>
     </div>
     <hr/>
 
-    <div>
+    <div class="section">
     <a name="Controller"></a>
     <h2>Actions and Functions - Controller</h2>
     <p>
