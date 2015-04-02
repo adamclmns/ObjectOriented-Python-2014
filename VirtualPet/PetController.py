@@ -26,9 +26,9 @@ class PetController():
 
         # Adding buttons/Controls to the View window
         # TODO: Use Lambdas instead of wrapper functions
-        ttk.Button(self.view.mainframe, text="Feed", command=self.threadedFeed).grid(column=2, row=4)
-        ttk.Button(self.view.mainframe, text="Play", command=self.threadedPlay).grid(column=2, row=5)
-        ttk.Button(self.view.mainframe, text="Clean", command=self.threadedClean).grid(column=2, row=6)
+        ttk.Button(self.view.mainframe, text="Feed", name="feed", command= lambda: self.submitAction(self.feed)).grid(column=2, row=4)
+        ttk.Button(self.view.mainframe, text="Play", name="play", command= lambda: self.submitAction(self.play)).grid(column=2, row=5)
+        ttk.Button(self.view.mainframe, text="Clean", name="clean", command= lambda: self.submitAction(self.clean)).grid(column=2, row=6)
 
 # --------------------------THREADING CODE ------------------------------------------ #
 
@@ -103,28 +103,7 @@ class PetController():
         self.view.petHappiness.set(self.model.getHappiness())
         self.view.petCleanliness.set(self.model.getCleanliness())
 
-# Threaded wrapping functions to use our super cool threads
 
-    def threadedFeed(self):
-        self.submitAction(self.feed)
-
-    def threadedPlay(self):
-        self.submitAction(self.play)
-
-    def threadedClean(self):
-        self.submitAction(self.clean)
-
-    def threadedFeedDecay(self):
-        self.submitAction(self.feedDecay)
-
-    def threadedHappinessDecay(self):
-        self.submitAction(self.happinessDecay)
-
-    def threadedCleanDecay(self):
-        self.submitAction(self.cleanDecay)
-
-    def threadedUpdate(self):
-        self.submitAction(self.update)
 
 # END OF SETTING IT UP
 
@@ -133,5 +112,6 @@ class PetController():
         secondsPassed = 0
         while True:
             secondsPassed += 1
-            self.threadedUpdate()
+            self.submitAction(self.update)
+            self.submitAction(self.updateValues)
             sleep(1)
