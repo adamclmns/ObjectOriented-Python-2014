@@ -104,6 +104,7 @@ class PetController():
         self.view.petCleanliness.set(self.model.getCleanliness())
 
 # Threaded wrapping functions to use our super cool threads
+
     def threadedFeed(self):
         self.submitAction(self.feed)
 
