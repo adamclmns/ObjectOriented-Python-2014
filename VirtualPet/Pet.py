@@ -1,19 +1,26 @@
 __author__ = 'Adam Clemons'
 
-class Pet:
-#Defining Initiation method - Sets up defaults when new object is created
-    def __init__(self, name):
+class Pet():
+# Defining Initiation method - Sets up defaults when new object is created
+    def __init__(self, name, vc):
         self.name = name
-        self.hunger = 5
-        self.happiness = 5
-        self.cleanliness = 5
+        self.hunger = 50
+        self.happiness = 50
+        self.cleanliness = 50
         self.hungerRate = 2
         self.happinessRate = 2
         self.cleanlinessRate = 2
+        # A variable to check for changes to see if we need to update anything
+        self.vc = vc
 
-# TODO: Delete all the overhead code that we don't need anymore
-##-------------------------------------------------------------OVER HEAD CODE ------------------------------------##
-#Getters for Attributes - Not required for Python
+    # This is for the Model/View/Controller Layout
+    def modelDidChange(self):
+        self.vc.modelDidChangeDelegate
+
+    def getModel(self):
+        return self.Pet
+
+# Getters for Attributes - Not required for Python
     def getName(self):
         return self.name
 
@@ -35,27 +42,31 @@ class Pet:
     def getCleanlinessDecayRate(self):
         return self.cleanlinessRate
 
-#Setters for Attributes - Not required for Python
+# Setters for Attributes - Not required for Python
     def setName(self, param):
         self.name = param
+        self.modelDidChange()
 
     def setHunger(self, param):
         self.hunger = param
+        self.modelDidChange()
 
     def setHappiness(self, param):
         self.happiness = param
+        self.modelDidChange()
 
     def setCleanliness(self, param):
-         self.cleanliness = param
+        self.cleanliness = param
+        self.modelDidChange()
 
     def setHungerDecayRate(self, param):
         self.hungerRate = param
+        self.modelDidChange()
 
     def setHappinessDecayRate(self, param):
         self.happinessRate = param
+        self.modelDidChange()
 
     def setCleanlinessDecayRate(self, param):
         self.cleanlinessRate = param
-
-##-------------------------------------------------------------OVER HEAD CODE ------------------------------------##
-
+        self.modelDidChange()
