@@ -9,7 +9,7 @@ import tkinter as tk
 
 class PetView(tk.Frame):
 
-    def __init__(self, vc):
+    def __init__(self, CallbackController):
         # TODO: put the root in main program when finished.
         # TODO: Check that the UI meets the design requirements
         # Create the Mainframe object and set it up.
@@ -22,7 +22,7 @@ class PetView(tk.Frame):
         self.Eatbadger = tk.PhotoImage(file="Images/EatBadger.png")
         self.CleanBadger = tk.PhotoImage(file="Images/CleanBadger.png")
         # This is for talking to the Controller
-        self.vc = vc
+        self.ControllerCallback = CallbackController
 
         # Create the variables for the labels.
         self.petHunger = tk.StringVar()
@@ -54,9 +54,9 @@ class PetView(tk.Frame):
         # tk.Button(self.mainframe, text="Play", name="play").grid(column=5, row=5)
         # tk.Button(self.mainframe, text="Clean", name="clean").grid(column=5, row=6)
 
-        tk.Button(self.mainframe, text="Feed", name="feed", command=self.vc.feedPressed).grid(column=5, row=4)
-        tk.Button(self.mainframe, text="Play", name="play", command=self.vc.playPressed).grid(column=5, row=5)
-        tk.Button(self.mainframe, text="Clean", name="clean", command=self.vc.cleanPressed).grid(column=5, row=6)
+        tk.Button(self.mainframe, text="Feed", name="feed", command=self.ControllerCallback.feedPressed).grid(column=5, row=4)
+        tk.Button(self.mainframe, text="Play", name="play", command=self.ControllerCallback.playPressed).grid(column=5, row=5)
+        tk.Button(self.mainframe, text="Clean", name="clean", command=self.ControllerCallback.cleanPressed).grid(column=5, row=6)
 
     # TODO: Create Action Setting functions here for passing to the Controller
     def setHappiness(self, value):
