@@ -4,7 +4,7 @@ This is a TKinter interface for the VirtualPet object class. This UI will intera
 '''
 
 __author__ = 'Adam Clemons'
-import tkinter as tk
+import Tkinter as tk
 
 
 class PetView(tk.Frame):

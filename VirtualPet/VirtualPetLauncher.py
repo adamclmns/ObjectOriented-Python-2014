@@ -1,6 +1,6 @@
 __author__ = 'Adam Clemons'
 
-from tkinter import *
+from Tkinter import *
 from Controller import PetController
 
 
