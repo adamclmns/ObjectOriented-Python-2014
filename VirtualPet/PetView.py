@@ -4,7 +4,7 @@ This is a TKinter interface for the VirtualPet object class. This UI will intera
 '''
 
 __author__ = 'Adam Clemons'
-import Tkinter as tk
+import tkinter as tk
 
 
 class PetView(tk.Frame):
@@ -17,7 +17,10 @@ class PetView(tk.Frame):
         self.mainframe.grid(column=0, row=0)
         self.mainframe.columnconfigure(0, weight=1)
         self.mainframe.rowconfigure(0, weight=1)
-
+        self.RestBadger = tk.PhotoImage(file="Images/RestBadger.png")
+        self.PlayBadger = tk.PhotoImage(file="Images/PlayBadger.png")
+        self.Eatbadger = tk.PhotoImage(file="Images/EatBadger.png")
+        self.CleanBadger = tk.PhotoImage(file="Images/CleanBadger.png")
         # This is for talking to the Controller
         self.vc = vc
 
