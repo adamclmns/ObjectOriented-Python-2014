@@ -1,7 +1,7 @@
 __author__ = 'Adam Clemons'
 
 from tkinter import *
-from Controller import PetController
+from PetController import PetController
 
 
 from time import sleep
@@ -14,11 +14,23 @@ from time import sleep
 root=Tk()
 root.configure(width=640, height=480)
 app=PetController(root)
+i = 0
 
 def tick():
     global app
-    app.updateDecay()
+    global i
+    i += 1
+    # Print statements for debugging
+    print(str(i)+" Ticks")
+    print("     Hunger: "+ str(app.model.hunger))
+    print("     Clean: "+str(app.model.cleanliness))
+    print("     Happiness:"+str(app.model.happiness))
+    print("     TimeSinceFeed: "+str(app.model.timeSinceFeed))
+    print("     TimeSinceClean: "+str(app.model.timeSinceClean))
+    print("     TimeSincePlay: "+str(app.model.timeSincePlay))
+    app.update()
     app.view.mainframe.after(1000, tick)
+
 
 def main():
     global root

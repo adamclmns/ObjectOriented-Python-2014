@@ -1,117 +1,61 @@
-__author__ = 'Adam Clemons'
-# Built in Classes
-import tkinter as tk
-from tkinter import ttk
-import _thread as thread
-import queue
-from time import sleep
+__author__ = 'AdamClmns'
 
-# Custom Classes
+#Import Custom View and Model
 from Pet import Pet
 from PetView import PetView
 
-# TODO: add logging to entire project
-
-# Functions that we need to perform actions to our Pet
 
 class PetController():
-    def __init__(self):
-        #Initialize Window, without putting a value in it yet
-        self.window = None
-        self.view = PetView(self.window)
-        self.model = Pet("Honey Badger")
-        # This queue's actions so that two threads don't try to access something at the same time
-        self.request_queue = queue.Queue()
-        self.result_queue = queue.Queue()
 
-        # Adding buttons/Controls to the View window
-        # TODO: Use Lambdas instead of wrapper functions
-        ttk.Button(self.view.mainframe, text="Feed", name="feed", command= lambda: self.submitAction(self.feed)).grid(column=2, row=4)
-        ttk.Button(self.view.mainframe, text="Play", name="play", command= lambda: self.submitAction(self.play)).grid(column=2, row=5)
-        ttk.Button(self.view.mainframe, text="Clean", name="clean", command= lambda: self.submitAction(self.clean)).grid(column=2, row=6)
+    def __init__(self, parent):
+        self.parent=parent
+        self.model=Pet("Name",self)
+        self.view=PetView(self)
+        # TODO: setup the model
+        # TODO: Set up the view
+        self.view.petHunger.set(self.model.hunger)
+        self.view.petCleanliness.set(self.model.cleanliness)
+        self.view.petHappiness.set(self.model.happiness)
 
-# --------------------------THREADING CODE ------------------------------------------ #
+    #Event hanlders - for buttons in view
+    def feedPressed(self):
+        self.model.hunger += 5
+        self.model.setTimeSinceFeed(0)
+        self.view.Feed()
+        self.view.petHunger.set(self.model.hunger)
 
-    # Remember this? - Copied and Pasted
-    # Thread main is where all the work will get done.
-    def submitAction(self, action, *arguments, **keyWordArguments):
-        self.request_queue.put((action, arguments, keyWordArguments))
-        print(action)
-        print("submitted successfully")
-        return self.result_queue.get()
+    def cleanPressed(self):
+        self.model.cleanliness+=5
+        self.model.setTimeSinceClean(0)
+        self.view.Clean()
+        self.view.petCleanliness.set(self.model.cleanliness)
 
-    def threadmain(self):
-        def timertick():
-            try:
-                action, arguments, keyWordArguments = self.request_queue.get_nowait()
-            except queue.Empty:
-                pass
-            else:
-                print("something in queue")
-
-                print("Hunger: "+str(self.model.hunger))
-                print("Happiness: "+str(self.model.happiness))
-                print("Cleanliness: "+str(self.model.cleanliness))
-
-
-                retval = action(*arguments, **keyWordArguments)
-                self.result_queue.put(retval)
-            self.window.after(500, timertick)
-
-        self.window = tk.Tk()
-        timertick()
-        self.window.mainloop()
-
-# -------------------------/THREADING CODE ------------------------------------------ #
-
-# Actions to be performed by the controller
-    def feed(self):
-        if self.model.hunger > 10:
-            self.model.hunger += self.model.hungerRate
-
-    def play(self):
-        if self.model.hunger > 0:
-            if self.model.happiness < 10:
-                self.model.hunger -= 1
-                self.model.happiness += 1
-
-    def clean(self):
-        if self.model.cleanliness > 0:
-            self.model.cleanliness -= 1
-
-# Actions on timer
-    def feedDecay(self):
-        if self.model.hunger > 0:
-            self.model.hunger -= 1
-
-    def happinessDecay(self):
-        if self.model.happiness > 0:
-            self.model.happiness -= 1
-
-    def cleanDecay(self):
-        if self.model.cleanliness > 0:
-            self.model.cleanliness -= 1
+    def playPressed(self):
+        self.model.happiness+=5
+        self.model.setTimeSincePlay(0)
+        self.view.Play()
+        self.view.petHappiness.set(self.model.happiness)
 
     def update(self):
-        self.feedDecay()
-        self.happinessDecay()
-        self.cleanDecay()
+        if self.model.happiness > 0:
+            self.model.setTimeSincePlay(self.model.timeSincePlay + 1)
+            if self.model.timeSincePlay > 4:
+                self.model.setHappiness(self.model.hunger - 1)
 
-    def updateValues(self):
-        # Set variables for the UI
-        self.view.petHunger.set(self.model.getHunger())
-        self.view.petHappiness.set(self.model.getHappiness())
-        self.view.petCleanliness.set(self.model.getCleanliness())
+        if self.model.cleanliness > 0:
+            self.model.setTimeSinceClean(self.model.timeSinceClean + 1)
+            if self.model.timeSinceClean > 4:
+                self.model.setHunger(self.model.hunger - 1)
 
+        if self.model.hunger >0:
+            self.model.setTimeSinceFeed(self.model.timeSinceFeed + 1)
+            if self.model.timeSinceFeed > 4:
+                self.model.setHunger(self.model.hunger - 1)
 
+        self.view.update()
 
-# END OF SETTING IT UP
-
-    def run(self):
-        thread.start_new_thread(self.threadmain, ())
-        secondsPassed = 0
-        while True:
-            secondsPassed += 1
-            self.submitAction(self.update)
-            self.submitAction(self.updateValues)
-            sleep(1)
+    def modelDidChangeDelegate(self):
+        print("Model Updated")
+        self.view.petHunger.set(self.model.hunger)
+        self.view.petCleanliness.set(self.model.cleanliness)
+        self.view.petHappiness.set(self.model.happiness)

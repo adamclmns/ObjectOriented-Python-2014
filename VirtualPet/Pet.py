@@ -19,7 +19,7 @@ class Pet():
 
     # This is for the Model/View/Controller Layout
     def modelDidChange(self):
-        self.callback.modelDidChangeDelegate
+        self.callback.modelDidChangeDelegate()
 
     def getModel(self):
         return self.Pet
@@ -86,7 +86,7 @@ class Pet():
 
     def setTimeSinceFeed(self, param):
         self.timeSinceFeed = param
-        self.modelDidChagne()
+        self.modelDidChange()
 
     def setTimeSincePlay(self, param):
         self.timeSincePlay = param
