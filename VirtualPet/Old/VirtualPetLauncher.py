@@ -18,18 +18,8 @@ i = 0
 
 def tick():
     global app
-    global i
-    i += 1
-    # Print statements for debugging
-    print(str(i)+" Ticks")
-    print("     Hunger: "+ str(app.model.hunger))
-    print("     Clean: "+str(app.model.cleanliness))
-    print("     Happiness:"+str(app.model.happiness))
-    print("     TimeSinceFeed: "+str(app.model.timeSinceFeed))
-    print("     TimeSinceClean: "+str(app.model.timeSinceClean))
-    print("     TimeSincePlay: "+str(app.model.timeSincePlay))
-    app.update()
-    app.view.mainframe.after(1000, tick)
+    app.timedUpdate()
+    app.view.mainframe.after(500, tick)
 
 
 def main():

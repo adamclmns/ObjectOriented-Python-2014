@@ -11,7 +11,7 @@ import os
 
 class PetView(tk.Frame):
 
-    def __init__(self, CallbackController):
+    def __init__(self, controller):
         # TODO: put the root in main program when finished.
         # TODO: Check that the UI meets the design requirements
         # Create the Mainframe object and set it up.
@@ -20,7 +20,7 @@ class PetView(tk.Frame):
         self.mainframe.columnconfigure(0, weight=1)
         self.mainframe.rowconfigure(0, weight=1)
         # This is for talking to the Controller
-        self.ControllerCallback = CallbackController
+        self.controller = controller
         # Create the variables for the labels.
         self.petHunger = tk.StringVar()
         self.petHappiness = tk.StringVar()
@@ -29,6 +29,13 @@ class PetView(tk.Frame):
         self.petHappiness.set(str(14))
         self.petHunger.set(str(14))
         self.petCleanliness.set(str(14))
+        # These are the labels for pictures
+        # This is an instance variable
+        path=os.getcwd()
+        self.RestBadger = tk.PhotoImage(file=path+"\Images\RestingBadger-small.png")
+        self.PlayBadger = tk.PhotoImage(file=path+"\Images\PlayBadger-small.png")
+        self.EatBadger = tk.PhotoImage(file=path+"\Images\EatBadger-small.png")
+        self.CleanBadger = tk.PhotoImage(file=path+"\Images\CleanBadger-small.png")
         # Adding values to track how long the picture has been changed
         self.timeSincePictureChange = 0
         self.pictureChanged = False
@@ -39,18 +46,12 @@ class PetView(tk.Frame):
         # Adding the Labels
         tk.Label(self.mainframe, text="Hunger ").grid(column=2, row=5)
         tk.Label(self.mainframe, text="Happiness ").grid(column=2, row=6)
-        tk.Label(self.mainframe, text="Size ").grid(column=2, row=7)
+        tk.Label(self.mainframe, text="Cleanliness ").grid(column=2, row=7)
         tk.Label(self.mainframe, textvariable=self.petHunger).grid(column=3, row=5)
         tk.Label(self.mainframe, textvariable=self.petHappiness).grid(column=3, row=6)
         tk.Label(self.mainframe, textvariable=self.petCleanliness).grid(column=3, row=7)
         # Adding a picture Label
         # TODO: Demonstrate the Python Console
-        # print(os.getcwd())
-        path=os.getcwd()
-        self.RestBadger = tk.PhotoImage(file=path+"\Images\RestingBadger-small.png")
-        self.PlayBadger = tk.PhotoImage(file=path+"\Images\PlayBadger-small.png")
-        self.EatBadger = tk.PhotoImage(file=path+"\Images\EatBadger-small.png")
-        self.CleanBadger = tk.PhotoImage(file=path+"\Images\CleanBadger-small.png")
         # Setting up the picture for changing.
         # TODO: Explain why this is different
         self.petPicture = tk.Label(self.mainframe, image=self.RestBadger)
@@ -62,43 +63,35 @@ class PetView(tk.Frame):
         # tk.Button(self.mainframe, text="Feed", name="feed").grid(column=5, row=4)
         # tk.Button(self.mainframe, text="Play", name="play").grid(column=5, row=5)
         # tk.Button(self.mainframe, text="Clean", name="clean").grid(column=5, row=6)
-        tk.Button(self.mainframe, text="Feed", name="feed", command=self.ControllerCallback.feedPressed).grid(column=5, row=5)
-        tk.Button(self.mainframe, text="Play", name="play", command=self.ControllerCallback.playPressed).grid(column=5, row=6)
-        tk.Button(self.mainframe, text="Clean", name="clean", command=self.ControllerCallback.cleanPressed).grid(column=5, row=7)
-        tk.Button(self.mainframe, text="Quit")
+        tk.Button(self.mainframe, text="Feed", name="feed", command=self.controller.feedActionPerformed).grid(column=5, row=5)
+        tk.Button(self.mainframe, text="Play", name="play", command=self.controller.playActionPerformed).grid(column=5, row=6)
+        tk.Button(self.mainframe, text="Clean", name="clean", command=self.controller.cleanActionPerformed).grid(column=5, row=7)
+        # tk.Button(self.mainframe, text="Quit")
 
-    def setHappiness(self, value):
-        self.petHappiness.set(value)
-
-    def setHunger(self, value):
-        self.petHunger.set(value)
-
-    def setCleanliness(self, value):
-        self.petCleanliness.set(value)
-
-    # Create functions
-    def ResetImage(self):
+    # Create Image changing functions
+    def resetImage(self):
         self.timeSincePictureChange = 0
         self.pictureChanged=False
         self.petPicture.configure(image=self.RestBadger)
 
-    def Feed(self):
+    def feed(self):
         self.timeSincePictureChange = 0
         self.pictureChanged=True
         self.petPicture.configure(image=self.EatBadger)
 
-    def Clean(self):
+    def clean(self):
         self.timeSincePictureChange = 0
         self.pictureChanged=True
         self.petPicture.configure(image=self.CleanBadger)
 
-    def Play(self):
+    def play(self):
         self.timeSincePictureChange = 0
         self.pictureChanged=True
         self.petPicture.configure(image=self.PlayBadger)
 
-    def update(self):
-        if self.timeSincePictureChange > 3:
-            self.ResetImage()
-        else:
-            self.timeSincePictureChange += 1
+    def tick(self):
+        if self.pictureChanged == True:
+            if self.timeSincePictureChange > 3:
+                self.resetImage()
+            else:
+                self.timeSincePictureChange += 1
