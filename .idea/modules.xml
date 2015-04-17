@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Google Drive/Projects/Programming/Python/AdamClmns/.idea/AdamClmns.iml" filepath="$USER_HOME$/Google Drive/Projects/Programming/Python/AdamClmns/.idea/AdamClmns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Introductory-Python-2014/.idea/Introductory-Python-2014.iml" filepath="$PROJECT_DIR$/../Introductory-Python-2014/.idea/Introductory-Python-2014.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ObjectOriented-Python-2014.iml" filepath="$PROJECT_DIR$/.idea/ObjectOriented-Python-2014.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PythonBreakout/.idea/PythonBreakout.iml" filepath="$PROJECT_DIR$/../PythonBreakout/.idea/PythonBreakout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Python_Examples/.idea/Python_Examples.iml" filepath="$PROJECT_DIR$/../Python_Examples/.idea/Python_Examples.iml" />
     </modules>
   </component>
 </project>
-
