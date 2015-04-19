@@ -54,8 +54,7 @@ class PetView(tk.Frame):
         # TODO: Demonstrate the Python Console
         # Setting up the picture for changing.
         # TODO: Explain why this is different
-        self.petPicture = tk.Label(self.mainframe, image=self.RestBadger)
-        self.petPicture.grid(column=1, row=1, columnspan=6, rowspan=4)
+
         # Adding a placeholder label to put some empty space at the bottom of the window
         tk.Label(self.mainframe, text=' ').grid(column=3, row=8)
          # Adding buttons

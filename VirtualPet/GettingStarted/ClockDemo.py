@@ -1,7 +1,8 @@
 __author__ = 'AdamClmns'
 
-from tkinter import *
+from Tkinter import *
 import time
+
 root = Tk()
 time1 = ''
 numberOfTicks = 0
@@ -18,7 +19,7 @@ def resetCount():
 
 button2=Button(text="reset Count", command=resetCount)
 button2.pack()
-button=Button(text="Change Background Color", command=lambda: changeColor('blue'))
+button=Button(text="Change Background Color", command=lambda: changeColor('orange'))
 button.pack()
 
 
