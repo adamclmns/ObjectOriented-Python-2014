@@ -2,20 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80e68cdf-0f3f-4c0d-99e6-4445e0c49277" name="Default" comment="Adding an example Tkinter MVC template to expand into the virtual pet">
-      <change type="DELETED" beforePath="Z:\Users\AdamClmns\Documents\GitHub\ObjectOriented-Python-2014\VirtualPet\VirtualPet\Images\BadgerProject.xcf" afterPath="" />
-      <change type="DELETED" beforePath="Z:\Users\AdamClmns\Documents\GitHub\ObjectOriented-Python-2014\VirtualPet\VirtualPet\Images\CleanBadger-small.png" afterPath="" />
-      <change type="DELETED" beforePath="Z:\Users\AdamClmns\Documents\GitHub\ObjectOriented-Python-2014\VirtualPet\VirtualPet\Images\CleanBadger.png" afterPath="" />
-      <change type="DELETED" beforePath="Z:\Users\AdamClmns\Documents\GitHub\ObjectOriented-Python-2014\VirtualPet\VirtualPet\Images\EatBadger-small.png" afterPath="" />
-      <change type="DELETED" beforePath="Z:\Users\AdamClmns\Documents\GitHub\ObjectOriented-Python-2014\VirtualPet\VirtualPet\Images\EatBadger.png" afterPath="" />
-      <change type="DELETED" beforePath="Z:\Users\AdamClmns\Documents\GitHub\ObjectOriented-Python-2014\VirtualPet\VirtualPet\Images\PlayBadger-small.png" afterPath="" />
-      <change type="DELETED" beforePath="Z:\Users\AdamClmns\Documents\GitHub\ObjectOriented-Python-2014\VirtualPet\VirtualPet\Images\PlayBadger.png" afterPath="" />
-      <change type="DELETED" beforePath="Z:\Users\AdamClmns\Documents\GitHub\ObjectOriented-Python-2014\VirtualPet\VirtualPet\Images\RestingBadger-small.png" afterPath="" />
-      <change type="DELETED" beforePath="Z:\Users\AdamClmns\Documents\GitHub\ObjectOriented-Python-2014\VirtualPet\VirtualPet\Images\RestingBadger.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Introductory-Python-2014/05-WeatherConsole.py" afterPath="$PROJECT_DIR$/../Introductory-Python-2014/05-WeatherConsole.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VirtualPet/GettingStarted/ClockDemo.py" afterPath="$PROJECT_DIR$/VirtualPet/GettingStarted/ClockDemo.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ObjectOriented-Python-2014.iml" afterPath="$PROJECT_DIR$/.idea/ObjectOriented-Python-2014.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VirtualPet/VirtualPet/PetView.py" afterPath="$PROJECT_DIR$/VirtualPet/VirtualPet/PetView.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ObjectOriented-Python-2014.iws" />
@@ -93,7 +79,7 @@
       <file leaf-file-name="05-WeatherConsole.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../Introductory-Python-2014/05-WeatherConsole.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.07464325" vertical-offset="0" max-vertical-offset="911">
+            <state vertical-scroll-proportion="0.07472528" vertical-offset="0" max-vertical-offset="910">
               <caret line="4" column="7" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="7" />
               <folding>
                 <element signature="e#20#33#0" expanded="true" />
@@ -203,56 +189,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="ObjectOriented-Python-2014" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ObjectOriented-Python-2014" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="untitled" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ObjectOriented-Python-2014" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AdamClmns" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ObjectOriented-Python-2014" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Python_Examples" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ObjectOriented-Python-2014" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonBreakout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ObjectOriented-Python-2014" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Introductory-Python-2014" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1232,7 +1168,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Introductory-Python-2014/05-WeatherConsole.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07464325" vertical-offset="0" max-vertical-offset="911">
+        <state vertical-scroll-proportion="0.07472528" vertical-offset="0" max-vertical-offset="910">
           <caret line="4" column="7" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="7" />
           <folding>
             <element signature="e#20#33#0" expanded="true" />
